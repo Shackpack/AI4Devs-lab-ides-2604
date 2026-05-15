@@ -2,6 +2,34 @@
 
 This project is a full-stack application with a React frontend and an Express backend using Prisma as an ORM. The frontend is initiated with Create React App, and the backend is written in TypeScript.
 
+## Features
+
+### Candidate Management (New)
+
+Recruiters can now add candidates to the ATS system with the following capabilities:
+
+- **Candidate Form:** Add new candidates with personal information (name, email, phone, address)
+- **Education History:** Record educational background with institution, degree, and dates
+- **Work Experience:** Document professional experience with company, position, and descriptions
+- **CV Upload:** Upload candidate CVs in PDF or DOCX format (max 10MB)
+- **Form Validation:** Real-time validation with user-friendly error messages
+- **Accessible Design:** WCAG 2.1 AA compliant with ARIA labels and keyboard navigation
+
+**API Endpoints:**
+- `POST /api/candidates` - Create a new candidate
+- `GET /api/candidates/:id` - Retrieve candidate details
+- `PUT /api/candidates/:id` - Update candidate information
+- `DELETE /api/candidates/:id` - Soft-delete a candidate
+- `POST /api/documents` - Upload a candidate CV
+- `GET /api/documents/:id` - Download a document
+- `DELETE /api/documents/:id` - Delete a document
+
+**Documentation:**
+- [API Documentation](backend/API_DOCUMENTATION.md) - Complete API reference with examples
+- [Database Schema](backend/DATABASE_SCHEMA.md) - Database structure and relationships
+- [User Guide](frontend/USER_GUIDE.md) - Instructions for recruiters
+- [Security Documentation](backend/SECURITY.md) - Security measures and compliance
+
 ## Directory and File Explanation
 
 - `backend/`: Contains the server-side code written in Node.js.

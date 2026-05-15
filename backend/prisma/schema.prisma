@@ -18,3 +18,57 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Candidate {
+  id          Int      @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  email       String   @unique
+  phone       String?
+  address     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime?
+  education   CandidateEducation[]
+  experience  CandidateExperience[]
+  documents   CandidateDocument[]
+}
+
+model CandidateEducation {
+  id           Int       @id @default(autoincrement())
+  candidateId  Int
+  institution  String
+  degree       String
+  fieldOfStudy String?
+  startDate    DateTime
+  endDate      DateTime?
+  candidate    Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@index([candidateId])
+}
+
+model CandidateExperience {
+  id          Int       @id @default(autoincrement())
+  candidateId Int
+  company     String
+  position    String
+  startDate   DateTime
+  endDate     DateTime?
+  description String?
+  candidate   Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@index([candidateId])
+}
+
+model CandidateDocument {
+  id          Int       @id @default(autoincrement())
+  candidateId Int
+  fileName    String
+  filePath    String
+  fileType    String
+  fileSize    Int
+  uploadedAt  DateTime  @default(now())
+  candidate   Candidate @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+
+  @@index([candidateId])
+}

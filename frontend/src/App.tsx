@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CandidateForm from './components/CandidateForm';
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <h1>Recruiter Dashboard</h1>
+        <button 
+          className="btn btn-primary"
+          onClick={() => setShowForm(!showForm)}
         >
-          Learn React
-        </a>
+          {showForm ? 'Close Form' : 'Add Candidate'}
+        </button>
       </header>
+      <main className="App-main">
+        {showForm && <CandidateForm />}
+      </main>
     </div>
   );
 }
