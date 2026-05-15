@@ -14,6 +14,7 @@ Recruiters can now add candidates to the ATS system with the following capabilit
 - **CV Upload:** Upload candidate CVs in PDF or DOCX format (max 10MB)
 - **Form Validation:** Real-time validation with user-friendly error messages
 - **Accessible Design:** WCAG 2.1 AA compliant with ARIA labels and keyboard navigation
+- **Modern UI/UX:** Responsive design with TailwindCSS, toast notifications, and smooth animations
 
 **API Endpoints:**
 - `POST /api/candidates` - Create a new candidate
